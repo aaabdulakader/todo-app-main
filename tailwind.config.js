@@ -62,6 +62,9 @@ module.exports = {
       normal: 400,
       bold: 700,
     },
+    backgroundImage: {
+      desktop: "/images/bg-pattern-desktop.svg",
+    },
   },
   plugins: [],
 };
