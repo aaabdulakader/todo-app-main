@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/Microsoft_To-Do_icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,89 +12,94 @@
       rel="stylesheet"
     />
     <link href="/dist/output.css" rel="stylesheet" />
-    <title>Todo app | Frontend Mentor</title>
+
+    <title>Todo app</title>
+    <!-- tab icon -->
   </head>
   <body
-    class="flex justify-center items-center font-sans text-xl bg-dark-blue-900 repeat-none relative"
+    class="flex dark justify-center items-center font-sans text-xl bg-dark-blue-900 repeat-none relative"
   >
-    <div class="min-w-[40%] absolute top-[10%]">
-      <div class="flex justify-between">
+    <div class="w-[90%] sm:max-w-lg absolute top-[5%]">
+      <div class="flex justify-between items-center">
         <h1 class="text-[2rem] font-bold tracking-[10px] text-white">TODO</h1>
-        <img class="w-9 cursor-pointer" src="/images/icon-sun.svg" alt="sun" />
         <img
-          class="w-9 cursor-pointer hidden"
+          class="sun cursor-pointerb h-5 w-5"
+          src="/images/icon-sun.svg"
+          alt="sun"
+        />
+        <img
+          class="moon w-9 cursor-pointer hidden h-5 w-5"
           src="/images/icon-moon.svg"
           alt="moon"
+          width="20"
+          height="20"
         />
       </div>
       <div
-        class="add-tasks flex justify-center items-center bg-dark-blue-800 p-3 mt-4"
+        class="add-tasks flex justify-center items-center bg-dark-blue-800 p-3 my-3 rounded-md z-20"
       >
         <button
-          class="add-checkbox flex items-center justify-center h-5 w-5 mr-5 border border-dark-gray-700 rounded-full cursor-pointer transition ease-in-out duration-200"
-        ></button>
+          class="add-checkbox checkbox flex items-center justify-center h-5 w-5 mr-5 border border-dark-gray-700 rounded-full cursor-pointer transition ease-in-out duration-200"
+          type="submit"
+          title="Add task"
+        >
+          <img
+            class="check rounded-full"
+            src="/images/icon-check.svg"
+            alt="check"
+          />
+        </button>
 
         <input
           class="task-input w-full border rounded-md border-none outline-none bg-transparent placeholder:text-dark-gray-700 text-neutral-gray-400 p-2"
           type="text"
           placeholder="Create a new todo..."
+          spellcheck="true"
+          required
         />
       </div>
       <!-- Tasks -->
-      <div class="task-box transition-all ease-out h-auto">
-        <div
-          class="task flex justify-center items-center dark:bg-dark-blue-800 p-3"
-        >
-          <div
-            class="checkbox flex items-center justify-center h-5 w-5 mr-5 border border-dark-gray-700 rounded-full cursor-pointer transition ease-in-out duration-200"
-          >
-            <img
-              class="check opacity-1 rounded-full"
-              src="/images/icon-check.svg"
-              alt="check"
-            />
-          </div>
-          <p class="task-name text-neutral-gray-100">Test Task</p>
-          <img
-            class="cross object-contain cross p-2 ml-auto"
-            src="/images/icon-cross.svg"
-            alt="cross"
-          />
-        </div>
-      </div>
       <div
-        data-category
-        class="categories flex justify-between items-center text-[.75rem] bg-dark-blue-800 p-2"
+        class="taskEls max-h-fit drop-shadow-sm shadow-dark-gray-200 rounded-md"
       >
-        <p class="items-left text-neutral-gray-400"></p>
+        <div
+          class="task-box transition-all ease-out h-auto overflow-hidden min-w-fit-content"
+        ></div>
+        <div
+          class="categories flex justify-between items-center text-[.75rem] bg-dark-blue-800 p-2 z-0"
+        >
+          <p class="items-left text-neutral-gray-400"></p>
 
-        <div class="filter flex justify-between items-center">
-          <p
-            data-all
-            class="all focused text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus-within:text-primary-blue"
+          <div
+            class="filter flex justify-between items-center bg-dark-blue-800 rounded-md"
           >
-            All
-          </p>
+            <p
+              class="all focused text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus-within:text-primary-blue"
+            >
+              All
+            </p>
+            <p
+              class="active text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
+            >
+              Active
+            </p>
+            <p
+              class="completed text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
+            >
+              Completed
+            </p>
+          </div>
           <p
-            data-active
-            class="active text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
+            class="clear text-neutral-gray-400 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
           >
-            Active
-          </p>
-          <p
-            data-completed
-            class="completed text-neutral-gray-400 mr-4 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
-          >
-            Completed
+            Clear Completed
           </p>
         </div>
-        <p
-          class="clear text-neutral-gray-400 cursor-pointer hover:text-gray-300 active:text-primary-blue focus:text-primary-blue"
-        >
-          Clear Completed
-        </p>
       </div>
 
+      <p class="text-dark-gray-700 text-center mt-16 md:mt-16">
+        Drag and drop to reorder list
+      </p>
       <script src="/src/script.js"></script>
     </div>
   </body>

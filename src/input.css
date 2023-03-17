@@ -7,19 +7,18 @@ body {
   width: 100vw;
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
-}
-
-body {
   background-image: url(/images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 0 0;
+}
+
+body.white-mode {
+  background-image: url(/images/bg-desktop-light.jpg);
+  background-color: aliceblue;
 }
 img {
   object-fit: contain;
   display: block;
-}
-.add-checkbox {
 }
 .task-input.error {
   border: 2px solid red;
@@ -56,14 +55,6 @@ img {
   cursor: pointer;
 }
 
-/* Slide off to the side when .checked class is added */
-
-@keyframes slide-off {
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
 .task.checked .categories {
   /* animation: slide-off 0.5s ease forwards; */
 }
@@ -74,9 +65,11 @@ img {
 .task {
   border-bottom: 1px solid hsl(235, 19%, 35%);
   opacity: 1;
+  color: white;
 }
+
 .task:first-child {
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
   border-radius: 0.375rem 0.375rem 0 0;
 }
 .categories {
@@ -103,4 +96,76 @@ img {
 
 .task-box {
   transition: all 2s ease-in-out;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  body {
+    background-image: url(/images/bg-mobile-dark.jpg);
+  }
+
+  .filter {
+    width: 99%;
+    position: absolute;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    margin-left: -5px;
+    margin-bottom: -1rem;
+  }
+
+  body.white-mode {
+    background-image: url(/images/bg-mobile-light.jpg);
+    background-repeat: no-repeat;
+  }
+}
+
+body.white-mode .task,
+.white-mode .categories,
+.white-mode .filter,
+.white-mode .add-tasks {
+  background-color: aliceblue;
+  color: hsl(235 21% 11%);
+  /* color: black !important; */
+}
+
+.moon,
+.sun {
+  cursor: pointer;
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.white-mode .moon {
+  display: block;
+  animation: roll-in 1s ease forwards;
+}
+
+.dark .sun {
+  animation: roll-in 1s ease forwards;
+}
+/* keyframes */
+@keyframes roll-in {
+  0% {
+    transform: rotate(0deg);
+    margin-top: -100px;
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.dark .sun {
+  display: block;
+}
+
+.dark .taskEls {
+  box-shadow: 0 5px 20px -10px #000;
+}
+
+.white-mode .taskEls {
+  box-shadow: 0 5px 20px -10px hsl(0, 2%, 83%);
 }
