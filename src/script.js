@@ -13,7 +13,6 @@ const sun = document.querySelector(".sun");
 let tasks = [];
 let completedTasks = [];
 
-// let addTasks = document.querySelector(".add-tasks");
 checkbox.forEach((item) => {
   item.addEventListener("click", (e) => {
     e.preventDefault();
